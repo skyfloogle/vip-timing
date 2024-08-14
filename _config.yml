@@ -1,0 +1,4 @@
+title: "VIP timing information"
+description: >- # this means to ignore newlines
+  This document explores the performance characteristics of the Virtual Boy's graphics chip,
+  the Virtual Image Processor (VIP).
