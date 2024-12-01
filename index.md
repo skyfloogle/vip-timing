@@ -280,7 +280,8 @@ and 22 dummy worlds. All together, this takes over 1.6 million cycles to render
 taking over 1.6 million cycles to render, or 4 frames worth of render time.
 As a result, the cutscene runs at 10 frames per second.
 This is the most expensive scene in any commercial Virtual Boy game.
-With just one normal world less, the cutscene might have been able to run at 12.5 frames per second.
+Two of the normal worlds contain only transparent tiles. Had they been made dummy worlds, the cutscene might have
+been able to run at 12.5 frames per second.
 
 Interestingly, the developers seem to have decoupled render time from processing logic, such that
 on past emulators, the transition runs at the same speed while appearing smoother, rather than 
