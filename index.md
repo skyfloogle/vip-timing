@@ -274,10 +274,13 @@ software-rendered Virtual Boy games, the VIP load is very light, with the hills 
 In this game, the level transitions involve Jack jumping down from one maze to the next.
 When jumping down, the maze Jack jumped from disappears, and the two following mazes are visible.
 These zoom into view, using full-screen affine layers. Each maze uses two layers, as the walls
-are closer to the camera. This means the transitions feature four full-screen affine layers,
+are closer to the camera. This means the transitions feature four full-screen affine layers.
+On top of that, the transition contains 3 full-screen normal worlds, 3 object worlds (with one object each),
+and 22 dummy worlds. All together, this takes over 1.6 million cycles to render
 taking over 1.6 million cycles to render, or 4 frames worth of render time.
 As a result, the cutscene runs at 10 frames per second.
 This is the most expensive scene in any commercial Virtual Boy game.
+With just one normal world less, the cutscene might have been able to run at 12.5 frames per second.
 
 Interestingly, the developers seem to have decoupled render time from processing logic, such that
 on past emulators, the transition runs at the same speed while appearing smoother, rather than 
