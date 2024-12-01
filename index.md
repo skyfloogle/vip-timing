@@ -275,7 +275,8 @@ In this game, the level transitions involve Jack jumping down from one maze to t
 When jumping down, the maze Jack jumped from disappears, and the two following mazes are visible.
 These zoom into view, using full-screen affine layers. Each maze uses two layers, as the walls
 are closer to the camera. This means the transitions feature four full-screen affine layers,
-taking over 1.5 million cycles to render, or 3.8 frames worth of render time.
+taking over 1.6 million cycles to render, or 4 frames worth of render time.
+As a result, the cutscene runs at 10 frames per second.
 This is the most expensive scene in any commercial Virtual Boy game.
 
 Interestingly, the developers seem to have decoupled render time from processing logic, such that
