@@ -276,8 +276,7 @@ When jumping down, the maze Jack jumped from disappears, and the two following m
 These zoom into view, using full-screen affine layers. Each maze uses two layers, as the walls
 are closer to the camera. This means the transitions feature four full-screen affine layers.
 On top of that, the transition contains 3 full-screen normal worlds, 3 object worlds (with one object each),
-and 22 dummy worlds. All together, this takes over 1.6 million cycles to render
-taking over 1.6 million cycles to render, or 4 frames worth of render time.
+and 22 dummy worlds. All together, this takes over 1.6 million cycles to render, or more than 4 frames worth of render time.
 As a result, the cutscene runs at 10 frames per second.
 This is the most expensive scene in any commercial Virtual Boy game.
 Two of the normal worlds contain only transparent tiles. Had they been made dummy worlds, the cutscene might have
