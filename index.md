@@ -86,8 +86,7 @@ performance cost. However, the cost per strip is discussed in a separate section
 as there are various quirks that would make the main section harder to read if included.
 
 Within each strip, the Virtual Boy renders each of the 32 worlds in sequence,
-until an `END` world is encountered (or the 32nd world is rendered). Identifying the `END`
-world and aborting takes 308 clock cycles, which does not occur when all 32 worlds are present.
+until an `END` world is encountered (or the 32nd world is rendered). `END` worlds cost 308 clock cycles in total, a cost not incurred when all 32 worlds are present.
 
 Dummy worlds simply cost 561 cycles.
 
@@ -169,7 +168,7 @@ framebuffers in 2 cycles.
 Object worlds are somewhat separated from background worlds. Most world attributes are ignored for object worlds.
 This means that they always cover the entire screen. However, some of the same rules still apply:
 objects that are off-screen horizontally count as if they were on-screen, while objects that are off-screen vertically
-don't. The visibility flags (`JLON` and `JRON`) have no effect on performance, even if the object is invisible.
+don't. The visibility flags (`JLON` and `JRON`) have no effect on performance, even if they make the object invisible.
 
 Each object world has a base cost of 757 cycles. Every object world decrements an internal counter, which starts at 3.
 Every world following an underflow, i.e. every fourth world starting with the fifth, costs an additional 28896 cycles.
@@ -199,7 +198,7 @@ it instead costs 3 cycles less.
 and the on-screen portion is only 1 strip tall,
 an additional 6 cycle penalty is incurred.
 * If the world is partly off the top of the screen,
-and the on-scren portion is at least 2 strips tall,
+and the on-screen portion is at least 2 strips tall,
 the additional penalty is only 4 cycles.
 * Each strip that the world is fully below costs an additional 5 cycles.
 * If the world is fully off the bottom of the screen, the cost is **reduced**
@@ -241,7 +240,7 @@ before proceeding, so that the intros effectively run at half the speed they are
 
 This game sets `FRMCYC` to 1 during gameplay, so the game targets 25FPS (half the usual framerate).
 The tennis court, net, and non-player characters are all rendered using affine layers.
-During singles gameplay, render time stays well within the frame budget. However, during doubles,
+During singles gameplay, render time stays well within the 50FPS frame budget. However, during doubles,
 there are three non-player characters on the field, so depending on how these are positioned,
 render time can easily run over 400k. The developers will have targeted 25FPS to ensure a more
 consistent experience.
